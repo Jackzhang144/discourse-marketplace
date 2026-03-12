@@ -6,8 +6,6 @@
 # authors: Jack
 # url: https://github.com/your-repo/discourse-marketplace
 
-enabled_site_setting :marketplace_enabled
-
 register_svg_icon "phone"
 register_svg_icon "check"
 
