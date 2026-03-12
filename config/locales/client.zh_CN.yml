@@ -1,6 +1,8 @@
 zh_CN:
   js:
     marketplace:
+      contact_button: "查看联系方式"
+      contact_permission_denied: "无权限查看"
       contact_info: "联系方式"
       contact_info_placeholder: "请输入您的联系方式"
       reveal_contact: "查看联系方式"

@@ -1,5 +1,8 @@
 en:
+  site_settings:
+    marketplace_contact_trust_level: "Minimum trust level to view contact info"
   marketplace:
+    contact_hidden: "This topic is marked as resolved, contact info has been hidden."
     contact_info: "Contact"
     reveal_contact: "View Contact"
     mark_resolved: "Mark as Resolved"

@@ -1,6 +1,8 @@
 en:
   js:
     marketplace:
+      contact_button: "View Contact"
+      contact_permission_denied: "No permission to view"
       contact_info: "Contact"
       contact_info_placeholder: "Enter your contact information"
       reveal_contact: "View Contact"
