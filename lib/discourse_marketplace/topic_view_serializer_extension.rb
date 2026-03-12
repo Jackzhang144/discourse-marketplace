@@ -8,7 +8,6 @@ module DiscourseMarketplace
     end
 
     def marketplace_contact_info
-      return nil unless SiteSetting.marketplace_enabled
       return nil unless category_enabled?(object.topic.category_id)
 
       contact_info = object.topic.custom_fields[DiscourseMarketplace::CONTACT_INFO_CUSTOM_FIELD]
@@ -27,7 +26,6 @@ module DiscourseMarketplace
     end
 
     def can_mark_topic_resolved
-      return false unless SiteSetting.marketplace_enabled
       return false unless SiteSetting.marketplace_resolved_category_id.present?
       return false unless category_enabled?(object.topic.category_id)
 

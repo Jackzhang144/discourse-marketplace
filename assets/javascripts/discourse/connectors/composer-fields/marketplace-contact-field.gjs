@@ -26,6 +26,10 @@ export default class MarketplaceContactField extends Component {
     return true;
   }
 
+  get contactLabel() {
+    return i18n("marketplace.contact_info");
+  }
+
   @action
   updateContactInfo(event) {
     this.args.model.setProperty(
@@ -38,7 +42,7 @@ export default class MarketplaceContactField extends Component {
     {{#if this.shouldShow}}
       <div class="marketplace-contact-field">
         <label for="marketplace-contact-info">
-          {{i18n "marketplace.contact_info"}}
+          {{this.contactLabel}}
         </label>
         <TextField
           @id="marketplace-contact-info"

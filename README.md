@@ -23,9 +23,8 @@ git clone https://github.com/your-repo/discourse-marketplace.git plugins/discour
 
 在 Discourse 管理后台的 "插件" 设置中进行配置:
 
-1. 启用 `marketplace_enabled`
-2. 设置 `marketplace_enabled_categories` 为启用功能的分类（二手专区），支持多选
-3. 设置 `marketplace_resolved_category_id` 为"已解决"分类的 ID
+1. 设置 `marketplace_enabled_categories` 为启用功能的分类（二手专区），支持多选
+2. 设置 `marketplace_resolved_category_id` 为"已解决"分类的 ID
 
 ## 使用
 
