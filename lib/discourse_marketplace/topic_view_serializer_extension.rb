@@ -3,26 +3,7 @@
 module DiscourseMarketplace
   module TopicViewSerializerExtension
     def self.prepended(base)
-      base.attributes :marketplace_contact_info, :can_view_marketplace_contact_info,
-                      :can_mark_topic_resolved, :marketplace_resolved_category_id
-    end
-
-    def marketplace_contact_info
-      return nil unless category_enabled?(object.topic.category_id)
-
-      contact_info = object.topic.custom_fields[DiscourseMarketplace::CONTACT_INFO_CUSTOM_FIELD]
-
-      # 检查权限
-      return contact_info if scope.can_view_marketplace_contact_info?(object.topic)
-
-      # 如果帖子已标记为已解决，也返回空
-      return nil if object.topic.category_id == SiteSetting.marketplace_resolved_category_id.to_i
-
-      nil
-    end
-
-    def can_view_marketplace_contact_info
-      scope.can_view_marketplace_contact_info?(object.topic)
+      base.attributes :can_mark_topic_resolved, :marketplace_resolved_category_id
     end
 
     def can_mark_topic_resolved
