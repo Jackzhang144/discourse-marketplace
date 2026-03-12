@@ -9,13 +9,21 @@ export default class MarketplaceContactField extends Component {
   @service siteSettings;
 
   get shouldShow() {
-    // 只在二手专区显示联系方式输入框
+    // 只在配置的分类显示联系方式输入框
     const categoryId = this.args.model.categoryId;
     if (!categoryId) {
       return false;
     }
-    // 这里可以扩展为检查是否是特定的分类
-    return this.siteSettings.marketplace_enable_contact_info;
+
+    // 检查是否在启用的分类中
+    const enabledCategories = this.siteSettings.marketplace_enabled_categories;
+    if (enabledCategories && enabledCategories.length > 0) {
+      if (!enabledCategories.includes(categoryId)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   @action

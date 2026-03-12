@@ -9,6 +9,7 @@ module DiscourseMarketplace
 
     def marketplace_contact_info
       return nil unless SiteSetting.marketplace_enabled
+      return nil unless category_enabled?(object.topic.category_id)
 
       contact_info = object.topic.custom_fields[DiscourseMarketplace::CONTACT_INFO_CUSTOM_FIELD]
 
@@ -28,6 +29,7 @@ module DiscourseMarketplace
     def can_mark_topic_resolved
       return false unless SiteSetting.marketplace_enabled
       return false unless SiteSetting.marketplace_resolved_category_id.present?
+      return false unless category_enabled?(object.topic.category_id)
 
       # 已经是已解决分类的帖子不能再次标记
       return false if object.topic.category_id == SiteSetting.marketplace_resolved_category_id.to_i
@@ -37,6 +39,13 @@ module DiscourseMarketplace
 
     def marketplace_resolved_category_id
       SiteSetting.marketplace_resolved_category_id.to_i
+    end
+
+    private
+
+    def category_enabled?(category_id)
+      return true if SiteSetting.marketplace_enabled_categories.blank?
+      SiteSetting.marketplace_enabled_categories.include?(category_id)
     end
   end
 end

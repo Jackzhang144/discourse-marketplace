@@ -3,12 +3,13 @@ marketplace_enabled:
   default: true
   client: true
 
+marketplace_enabled_categories:
+  type: categories
+  default: ""
+  client: true
+  description: "启用隐藏联系方式开关功能的分类"
+
 marketplace_resolved_category_id:
   type: category
   default: ""
-  client: true
-
-marketplace_enable_contact_info:
-  type: boolean
-  default: true
   client: true

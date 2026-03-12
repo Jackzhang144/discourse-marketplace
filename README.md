@@ -24,12 +24,12 @@ git clone https://github.com/your-repo/discourse-marketplace.git plugins/discour
 在 Discourse 管理后台的 "插件" 设置中进行配置:
 
 1. 启用 `marketplace_enabled`
-2. 设置 `marketplace_resolved_category_id` 为"已解决"分类的 ID
-3. 可选: 启用 `marketplace_enable_contact_info`
+2. 设置 `marketplace_enabled_categories` 为启用功能的分类（二手专区），支持多选
+3. 设置 `marketplace_resolved_category_id` 为"已解决"分类的 ID
 
 ## 使用
 
-1. 在二手专区发帖时，会显示"联系方式"输入框
+1. 在配置的分类（二手专区）发帖时，会显示"联系方式"输入框
 2. 其他用户查看帖子时，需要点击"查看联系方式"按钮才能看到
 3. 帖子作者可以点击"标记已解决"按钮，将帖子移动到已解决分类
 
