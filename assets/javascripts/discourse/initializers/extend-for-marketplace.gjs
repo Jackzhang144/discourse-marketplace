@@ -75,9 +75,9 @@ function addDecorators(api) {
       if (!existingBadge) {
         const badge = document.createElement("span");
         badge.className = "marketplace-resolved-badge";
-        badge.innerHTML = `<svg class="fa d-icon d-icon-check-circle resolved-icon">
+        badge.innerHTML = `<span class="marketplace-resolved-badge-icon"><svg class="fa d-icon d-icon-check-circle">
           <use href="#check-circle"></use>
-        </svg>`;
+        </svg></span>`;
         topicTitleElement.appendChild(badge);
       }
     }

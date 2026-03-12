@@ -1,9 +1,14 @@
 .marketplace-resolved-badge {
+  display: inline-flex;
+  align-items: center;
   margin-left: 8px;
-  color: #009900;
 
-  .d-icon-check-circle {
-    font-size: 1.2em;
+  .marketplace-resolved-badge-icon {
+    color: #009900;
+
+    .d-icon {
+      font-size: 1.2em;
+    }
   }
 }
 
