@@ -9,7 +9,8 @@ marketplace_enabled_categories:
   client: true
   description: "启用隐藏联系方式开关功能的分类"
 
-marketplace_resolved_category_id:
-  type: category
-  default: ""
+marketplace_contact_trust_level:
+  type: integer
+  default: 0
   client: true
+  description: "查看联系方式的最低 trust_level"
