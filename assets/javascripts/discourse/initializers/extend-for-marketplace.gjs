@@ -26,7 +26,7 @@ function customizeTopicFooter(api) {
     }
   );
 
-  api.addTrackedTopicProperties("can_mark_topic_resolved");
+  api.addTrackedTopicProperties("can_mark_topic_resolved", "is_resolved");
 }
 
 function addDecorators(api) {
@@ -64,6 +64,23 @@ function addDecorators(api) {
         el.innerHTML = `<span class="contact-hidden">${I18n.t("marketplace.contact_permission_denied")}</span>`;
       }
     });
+  });
+
+  // 添加已解决徽章
+  api.decorateTopicTitle((topicTitleElement, topic) => {
+    if (topic.is_resolved) {
+      // 帖子已被标记为已解决
+      // 检查是否已经显示了徽章，避免重复
+      const existingBadge = topicTitleElement.querySelector(".marketplace-resolved-badge");
+      if (!existingBadge) {
+        const badge = document.createElement("span");
+        badge.className = "marketplace-resolved-badge";
+        badge.innerHTML = `<svg class="fa d-icon d-icon-check-circle resolved-icon">
+          <use href="#check-circle"></use>
+        </svg>`;
+        topicTitleElement.appendChild(badge);
+      }
+    }
   });
 }
 

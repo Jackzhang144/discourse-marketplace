@@ -1,0 +1,22 @@
+.marketplace-resolved-badge {
+  margin-left: 8px;
+  color: #009900;
+
+  .d-icon-check-circle {
+    font-size: 1.2em;
+  }
+}
+
+.marketplace-contact-btn {
+  margin: 4px 0;
+}
+
+.contact-revealed {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.contact-hidden {
+  color: var(--primary-medium);
+  font-style: italic;
+}
