@@ -4,7 +4,7 @@ marketplace_enabled:
   client: true
 
 marketplace_enabled_categories:
-  type: categories
+  type: category_list
   default: ""
   client: true
   description: "启用隐藏联系方式开关功能的分类"
