@@ -15,7 +15,7 @@ module DiscourseMarketplace
 
     def can_mark_topic_resolved?(topic)
       return false unless authenticated?
-      return false unless SiteSetting.marketplace_resolved_category_id.present?
+      return false unless SiteSetting.marketplace.resolved_category_id.present?
 
       # Staff 可以标记
       return true if is_staff?

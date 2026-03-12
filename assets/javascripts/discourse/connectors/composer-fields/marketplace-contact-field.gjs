@@ -16,7 +16,7 @@ export default class MarketplaceContactField extends Component {
     }
 
     // 检查是否在启用的分类中
-    const enabledCategories = this.siteSettings.marketplace_enabled_categories;
+    const enabledCategories = this.siteSettings.marketplace_enabled_categories || this.siteSettings.marketplace.enabled_categories;
     if (enabledCategories && enabledCategories.length > 0) {
       if (!enabledCategories.includes(categoryId)) {
         return false;

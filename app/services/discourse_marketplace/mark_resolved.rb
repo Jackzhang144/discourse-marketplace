@@ -25,7 +25,7 @@ module DiscourseMarketplace
   end
 
   def update_category(topic:)
-    resolved_category_id = SiteSetting.marketplace_resolved_category_id.to_i
+    resolved_category_id = SiteSetting.marketplace.resolved_category_id.to_i
     topic.update!(category_id: resolved_category_id)
   end
 
