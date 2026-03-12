@@ -1,0 +1,14 @@
+{
+  "name": "discourse-marketplace",
+  "component": false,
+  "about_url": "",
+  "license_url": "",
+  "version": "0.1",
+  "authors": [
+    {
+      "name": "Jack",
+      "url": ""
+    }
+  ],
+  "description": "二手交易帖子联系方式隐私保护插件"
+}
