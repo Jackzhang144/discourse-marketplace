@@ -12,6 +12,10 @@ export default class MarketplaceContactInfo extends Component {
     return this.args.canViewContactInfo;
   }
 
+  get canShowContact() {
+    return this.revealed || this.canView;
+  }
+
   get hasContactInfo() {
     return this.args.contactInfo && this.args.contactInfo.length > 0;
   }
@@ -28,7 +32,7 @@ export default class MarketplaceContactInfo extends Component {
   <template>
     {{#if this.hasContactInfo}}
       <div class="marketplace-contact-info">
-        {{#if (or this.revealed this.canView)}}
+        {{#if this.canShowContact}}
           <div class="contact-info-content">
             <span class="contact-label">{{i18n "marketplace.contact_info"}}:</span>
             <span class="contact-value">{{@contactInfo}}</span>
