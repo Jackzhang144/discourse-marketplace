@@ -3,6 +3,7 @@ import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import DButton from "discourse/components/d-button";
+import { i18n } from "discourse-i18n";
 
 export default class MarketplaceContactInfo extends Component {
   @service currentUser;
@@ -24,6 +25,10 @@ export default class MarketplaceContactInfo extends Component {
     return this.args.isResolved;
   }
 
+  get contactLabel() {
+    return i18n("marketplace.contact_info");
+  }
+
   @action
   revealContact() {
     this.revealed = true;
@@ -34,7 +39,7 @@ export default class MarketplaceContactInfo extends Component {
       <div class="marketplace-contact-info">
         {{#if this.canShowContact}}
           <div class="contact-info-content">
-            <span class="contact-label">{{i18n "marketplace.contact_info"}}:</span>
+            <span class="contact-label">{{this.contactLabel}}:</span>
             <span class="contact-value">{{@contactInfo}}</span>
           </div>
         {{else}}

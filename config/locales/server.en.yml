@@ -1,6 +1,6 @@
 en:
   marketplace:
-    contact_info: "联系方式"
-    reveal_contact: "查看联系方式"
-    mark_resolved: "标记已解决"
-    mark_resolved_title: "将此帖子标记为已解决"
+    contact_info: "Contact"
+    reveal_contact: "View Contact"
+    mark_resolved: "Mark as Resolved"
+    mark_resolved_title: "Mark this topic as resolved"

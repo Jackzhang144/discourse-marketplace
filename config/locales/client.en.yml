@@ -1,8 +1,8 @@
 en:
   js:
     marketplace:
-      contact_info: "联系方式"
-      contact_info_placeholder: "请输入您的联系方式"
-      reveal_contact: "查看联系方式"
-      mark_resolved: "标记已解决"
-      mark_resolved_title: "将此帖子标记为已解决"
+      contact_info: "Contact"
+      contact_info_placeholder: "Enter your contact information"
+      reveal_contact: "View Contact"
+      mark_resolved: "Mark as Resolved"
+      mark_resolved_title: "Mark this topic as resolved"
