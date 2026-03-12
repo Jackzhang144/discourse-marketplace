@@ -13,25 +13,37 @@ module DiscourseMarketplace
 
     policy :can_mark_resolved
 
-    step :update_category
-    step :clear_contact_info
+    step :remove_contact_bbcode
     step :publish_event
   end
 
   private
 
   def can_mark_resolved(topic:, guardian:)
+    return false if !SiteSetting.marketplace_enabled
+    return false if !topic.category_id.in?(SiteSetting.marketplace_enabled_categories.map(&:to_i))
     guardian.can_mark_topic_resolved?(topic)
   end
 
-  def update_category(topic:)
-    resolved_category_id = SiteSetting.marketplace.resolved_category_id.to_i
-    topic.update!(category_id: resolved_category_id)
-  end
+  def remove_contact_bbcode(topic:, guardian:)
+    post = topic.ordered_posts.first
+    return if post.blank?
 
-  def clear_contact_info(topic:)
-    topic.custom_fields.delete(DiscourseMarketplace::CONTACT_INFO_CUSTOM_FIELD)
-    topic.save_custom_fields
+    raw = post.raw
+    # 移除 [contact]...[/contact] BBCode
+    new_raw = raw.gsub(/\[contact\](.*?)\[\/contact\]/mi, "")
+
+    # 如果有内容被移除，添加提示信息
+    if new_raw != raw
+      # 清理多余的空白
+      new_raw = new_raw.squeeze("\n").strip
+      # 添加提示块
+      hint_text = I18n.t("marketplace.contact_hidden")
+      new_raw = "#{new_raw}\n\n> #{hint_text}"
+    end
+
+    # 更新帖子
+    post.update!(raw: new_raw, last_editor_id: guardian.user.id)
   end
 
   def publish_event(topic:)
