@@ -3,7 +3,9 @@
 module DiscourseMarketplace
   module GuardianExtensions
     def can_mark_topic_resolved?(topic)
+      return false unless SiteSetting.marketplace_enabled
       return false unless authenticated?
+      return false unless topic
 
       # Staff 可以标记
       return true if is_staff?

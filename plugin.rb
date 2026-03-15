@@ -15,6 +15,7 @@ module ::DiscourseMarketplace
 end
 
 require_relative "lib/discourse_marketplace/engine"
+require_relative "lib/discourse_marketplace/category_helpers"
 require_relative "lib/discourse_marketplace/guardian_extensions"
 require_relative "lib/discourse_marketplace/topic_view_serializer_extension"
 require_relative "lib/discourse_marketplace/posts_controller_extension"

@@ -2,6 +2,8 @@
 
 module DiscourseMarketplace
   module TopicViewSerializerExtension
+    include CategoryHelpers
+
     def self.prepended(base)
       base.attributes :can_mark_topic_resolved
     end
@@ -11,13 +13,6 @@ module DiscourseMarketplace
       return false unless category_enabled?(object.topic.category_id)
 
       scope.can_mark_topic_resolved?(object.topic)
-    end
-
-    private
-
-    def category_enabled?(category_id)
-      return true if SiteSetting.marketplace_enabled_categories.blank?
-      SiteSetting.marketplace_enabled_categories.include?(category_id)
     end
   end
 end

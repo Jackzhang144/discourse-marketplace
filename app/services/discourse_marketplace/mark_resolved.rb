@@ -3,6 +3,7 @@
 module DiscourseMarketplace
   class MarkResolved
     include Service::Base
+    include CategoryHelpers
 
     params do
       attribute :topic_id, :integer
@@ -19,9 +20,13 @@ module DiscourseMarketplace
 
   private
 
+  def fetch_topic(params:)
+    Topic.find_by(id: params.topic_id)
+  end
+
   def can_mark_resolved(topic:, guardian:)
     return false if !SiteSetting.marketplace_enabled
-    return false if !topic.category_id.in?(SiteSetting.marketplace_enabled_categories.map(&:to_i))
+    return false unless category_enabled?(topic.category_id)
     guardian.can_mark_topic_resolved?(topic)
   end
 

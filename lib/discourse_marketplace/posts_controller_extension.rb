@@ -2,6 +2,8 @@
 
 module DiscourseMarketplace
   module PostsControllerExtension
+    include CategoryHelpers
+
     def self.prepended(base)
       base.class_eval do
         alias_method :original_create, :create
@@ -22,13 +24,6 @@ module DiscourseMarketplace
           topic.save_custom_fields
         end
       end
-    end
-
-    private
-
-    def category_enabled?(category_id)
-      return true if SiteSetting.marketplace_enabled_categories.blank?
-      SiteSetting.marketplace_enabled_categories.include?(category_id)
     end
   end
 end
