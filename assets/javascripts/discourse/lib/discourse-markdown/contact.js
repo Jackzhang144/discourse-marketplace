@@ -10,7 +10,7 @@ export function setup(helper) {
   });
 
   // 白名单化 span.contact-placeholder 和 data-contact 属性
-  helper.whiteList([
+  helper.allowList([
     "span.contact-placeholder",
     "span.contact-placeholder[data-contact]",
   ]);
