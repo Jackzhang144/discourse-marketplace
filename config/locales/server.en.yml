@@ -1,5 +1,7 @@
 en:
   site_settings:
+    marketplace_enabled: "Enable marketplace plugin"
+    marketplace_enabled_categories: "Categories where marketplace features are enabled"
     marketplace_contact_trust_level: "Minimum trust level to view contact info"
   marketplace:
     contact_hidden: "This topic is marked as resolved, contact info has been hidden."

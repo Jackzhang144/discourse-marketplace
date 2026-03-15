@@ -1,5 +1,7 @@
 zh_CN:
   site_settings:
+    marketplace_enabled: "启用市场插件"
+    marketplace_enabled_categories: "启用市场功能的分类"
     marketplace_contact_trust_level: "查看联系方式的最低 trust_level"
   marketplace:
     contact_hidden: "此贴已标记为已解决，联系方式已隐藏"

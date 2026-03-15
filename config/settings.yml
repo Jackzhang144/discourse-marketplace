@@ -1,4 +1,4 @@
-marketplace:
+plugins:
   marketplace_enabled:
     type: boolean
     default: true
