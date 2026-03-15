@@ -1,9 +1,19 @@
 import { escape } from "pretty-text/sanitizer";
 
 export function setup(helper) {
+  if (!helper.markdownIt) {
+    return;
+  }
+
   helper.registerOptions((opts, siteSettings) => {
     opts.features["contact"] = !!siteSettings.marketplace_enabled;
   });
+
+  // 白名单化 span.contact-placeholder 和 data-contact 属性
+  helper.whiteList([
+    "span.contact-placeholder",
+    "span.contact-placeholder[data-contact]",
+  ]);
 
   // 使用 Discourse 推荐的 inline.bbcode.ruler
   helper.registerPlugin((md) => {
