@@ -1,4 +1,9 @@
 zh_CN:
+  admin_js:
+    admin:
+      site_settings:
+        categories:
+          marketplace: "市场"
   js:
     marketplace:
       contact_button: "查看联系方式"
