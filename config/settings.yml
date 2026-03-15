@@ -1,19 +1,17 @@
-marketplace_enabled:
-  type: boolean
-  default: true
-  client: true
-  enabled_site_setting: marketplace_enabled
+marketplace:
+  marketplace_enabled:
+    type: boolean
+    default: true
+    client: true
 
-marketplace_enabled_categories:
-  type: category_list
-  default: ""
-  client: true
-  enabled_site_setting: marketplace_enabled
-  description: "启用隐藏联系方式开关功能的分类"
+  marketplace_enabled_categories:
+    type: category_list
+    default: ""
+    client: true
+    description: "启用隐藏联系方式开关功能的分类"
 
-marketplace_contact_trust_level:
-  type: integer
-  default: 0
-  client: true
-  enabled_site_setting: marketplace_enabled
-  description: "查看联系方式的最低 trust_level"
+  marketplace_contact_trust_level:
+    type: integer
+    default: 0
+    client: true
+    description: "查看联系方式的最低 trust_level"

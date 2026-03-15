@@ -1,4 +1,5 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
+import { i18n } from "discourse-i18n";
 
 function initializeWithApi(api) {
   addDecorators(api);
@@ -29,7 +30,7 @@ function addDecorators(api) {
         el.innerHTML = "";
         const button = document.createElement("button");
         button.className = "btn btn-primary marketplace-contact-btn";
-        button.textContent = I18n.t("marketplace.contact_button");
+        button.textContent = i18n("marketplace.contact_button");
         button.addEventListener("click", () => {
           // 使用 textContent 安全地显示联系方式
           el.innerHTML = "";
@@ -44,7 +45,7 @@ function addDecorators(api) {
         el.innerHTML = "";
         const span = document.createElement("span");
         span.className = "contact-hidden";
-        span.textContent = I18n.t("marketplace.contact_permission_denied");
+        span.textContent = i18n("marketplace.contact_permission_denied");
         el.appendChild(span);
       }
     });
@@ -54,6 +55,6 @@ function addDecorators(api) {
 export default {
   name: "extend-for-marketplace",
   initialize() {
-    withPluginApi("1.4.0", initializeWithApi);
+    withPluginApi(initializeWithApi);
   },
 };
